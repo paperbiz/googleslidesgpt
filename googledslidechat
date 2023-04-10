@@ -5,17 +5,17 @@ const MODEL_TYPE = "gpt-3.5-turbo"; //chatGPT model
 // Creates a custom menu in Google Slides
 function onOpen() {
     SlidesApp.getUi().createMenu("ChatGPT")
-        .addItem("Generate Prompt", "generatePrompt")
-        .addItem("Generate Tweets", "generateTweets")
+        .addItem("Generate 3 Details", "generateIdeas")
+        .addItem("Generate 6 Topics", "generateSummary")
         .addToUi();
   }
   
   // Generates prompt based on the selected text and adds it to a slide
-  function generateTweets() {
+  function generateIdeas() {
     const presentation = SlidesApp.getActivePresentation();
     const selectedText = presentation.getSelection().getCurrentPage().getShapes()[0].getText().asString();
     const slide = presentation.getSelection().getCurrentPage();
-    const prompt = "Generate 3 Tweets on " + selectedText;
+    const prompt = "Generate 3 detailed points on " + selectedText;
     const temperature = 0;
     const maxTokens = 2060;
   
@@ -45,11 +45,11 @@ function onOpen() {
   }
 
   // Generates prompt based on the selected text and adds it to a slide
-  function generatePrompt() {
+  function generateSummary() {
     const presentation = SlidesApp.getActivePresentation();
     const selectedText = presentation.getSelection().getCurrentPage().getShapes()[0].getText().asString();
     const slide = presentation.getSelection().getCurrentPage();
-    const prompt = "Generate 3 points on " + selectedText;
+    const prompt = "Generate 6 sub ideas on " + selectedText;
     const temperature = 0;
     const maxTokens = 2060;
   
